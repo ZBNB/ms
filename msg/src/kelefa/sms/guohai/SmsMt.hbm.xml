@@ -1,0 +1,32 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping
+    PUBLIC "-//Hibernate/Hibernate Mapping DTD//EN"
+    "http://hibernate.sourceforge.net/hibernate-mapping-2.0.dtd">
+
+<hibernate-mapping  package="com.kelefa.sms.guohai">
+
+    <class name="SmsMt" table="GHZQ_smsMT_Table">
+
+        <id name="id" type="long" unsaved-value="null" >
+            <column name="id" not-null="true"/>
+            <generator class="native"/>
+        </id>
+
+	<property name="cp_id" column="cp_id" type="string" length="10"/>
+	<property name="msg_level" column="msg_level" type="int"/>
+	<property name="fee_terminal_id" column="fee_terminal_id" type="string" length="16"/>
+	<property name="fee_type" column="fee_type" type="string" length="2"/>
+	<property name="fee_code" column="fee_code" type="string" length="6"/>
+	<property name="dest_terminal_id" column="dest_terminal_id" type="string" length="16"/>
+	<property name="msg_content" column="msg_content" type="string" length="140"/>
+	<property name="InfoCode" column="InfoCode" type="string" length="12"/>
+	<property name="ih_timestamp" column="ih_timestamp" type="string" length="14"/>
+	<property name="ih_result" column="ih_result" type="int"/>
+	<property name="exp1" column="exp1" type="string" length="50"/>
+	<property name="exp2" column="exp2" type="string" length="50"/>
+	<property name="exp3" column="exp3" type="string" length="50"/>
+
+
+    </class>
+
+</hibernate-mapping>

@@ -1,0 +1,11 @@
+[PropertyInfo]
+conn,ConnDesc,false,false, , ,false,<default>
+instance,MoManager,false,false, , ,false,<default>
+logined,boolean,false,false, , ,false,<default>
+moTask,MoTask,false,false, , ,false,<default>
+workQueue,WorkQueue,false,false, , ,false,<default>
+[IconNames]
+
+
+
+

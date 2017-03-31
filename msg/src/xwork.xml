@@ -1,0 +1,62 @@
+<!DOCTYPE xwork
+	PUBLIC "-//OpenSymphony Group//XWork 1.0//EN"
+	"http://www.opensymphony.com/xwork/xwork-1.0.dtd">
+
+<xwork>
+
+    <include file="webwork-default.xml"/>
+
+    <package name="default" extends="webwork-default">
+
+      <interceptors>
+      	<interceptor name="security" class="com.kelefa.sms.interceptor.SecurityInterceptor"/>
+        <interceptor-stack name="appDefaultStack">
+          <interceptor-ref name="component"/>
+          <interceptor-ref name="static-params"/>
+          <interceptor-ref name="params"/>
+        </interceptor-stack>
+        <interceptor-stack name="defaultStackWithSecurity">
+          <interceptor-ref name="component"/>
+          <interceptor-ref name="defaultStack"/>
+          <interceptor-ref name="security"/>
+        </interceptor-stack>
+      </interceptors>
+
+      <default-interceptor-ref name="appDefaultStack"/>
+
+      <global-results>
+      	<result name="login" type="dispatcher">
+      	  <param name="location">/login.jsp</param>
+      	</result>
+      </global-results>
+
+    </package>
+
+    <package name="main" extends="default">
+
+        <action name="login" class="com.kelefa.sms.action.Login">
+          <result name="success" type="redirect">
+            <param name="location">/index.htm</param>
+          </result>
+        </action>
+
+
+        <action name="mo" class="com.kelefa.sms.action.MoAction">
+          <result name="success" type="dispatcher">
+            <param name="location">/mo.jsp</param>
+          </result>
+	  <interceptor-ref name="defaultStackWithSecurity"/>
+        </action>
+
+        <action name="mt" class="com.kelefa.sms.action.MtAction">
+          <result name="success" type="dispatcher">
+            <param name="location">/mt.jsp</param>
+          </result>
+	  <interceptor-ref name="defaultStackWithSecurity"/>
+        </action>
+
+    </package>
+<!--
+    <include file="action-user.xml"/>
+-->
+</xwork>

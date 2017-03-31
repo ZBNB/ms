@@ -1,0 +1,9 @@
+<components>
+
+    <component>
+        <scope>application</scope>
+        <class>com.kelefa.cmpp.mo.DefaultDeliverHandler</class>
+        <enabler>com.kelefa.cmpp.mo.DeliverHandlerAware</enabler>
+    </component>
+
+</components>
